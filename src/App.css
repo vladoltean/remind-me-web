@@ -1,11 +1,110 @@
-.sign-on{
-    background-color: rgba(0, 0, 0, 0.1);
-    /*border: black solid 1px;*/
-    border-radius: 10px;
-    padding: 5rem;
+.page {
+    background-color: #b7d0df;
 }
 
-a{
+.my-button {
+    border: none;
+    border-radius: unset;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.sign-on {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*border: black solid 1px;*/
+    border-radius: 3px;
+    box-shadow: 10px 10px 5px gray;
+    padding: 5px;
+
+}
+
+.sign-on .row {
+    width: 100%;
+    margin: 0;
+}
+
+.sign-on .row .row{
+    width: 100%;
+    margin:0;
+}
+
+.sign-on .row div {
+    text-align: center;
+}
+
+.sign-in-title {
+    border-bottom: 1px solid #b7d0df;
+    color: #5e6772;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.sign-in-content {
+    margin: 20px 10px;
+}
+
+.sign-in-content .sign-in{
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.sign-in-content .sign-in .form-group input{
+    border-radius: unset;
+}
+
+.sign-in button{
+    width: 100%;
+}
+
+.social-sign-in {
+    border-top: 1px solid #b7d0df;
+    margin-top: 50px;
+    padding-top: 10px;
+}
+
+.social-sign-in button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    box-shadow: 2px 2px 5px gray;
+    margin: 0 auto;
+    color: white;
+}
+
+.social-sign-in .fb-sign-in {
+    float:left;
+    background: linear-gradient(top, #4267b2, #29487d); /*facebook navbar color, border bottom color*/
+}
+
+.social-sign-in .google-sign-in {
+    float:right;
+    background: linear-gradient(top, #d34836, #9c4432); /*google plus red color, google plus dark grey color*/
+
+}
+
+.social-sign-in .title {
+    color: #5e6772;
+    font-size: 15px;
+    /*font-weight: lighter;*/
+}
+
+/*mobile*/
+@media only screen and (max-width: 768px) {
+    .sign-on {
+        background-color: blueviolet;
+    }
+}
+
+/*web*/
+@media only screen and (min-width: 769px) {
+    .sign-on {
+        min-width: 500px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+a {
     padding: 0.8rem;
     border-radius: 10px;
 }
