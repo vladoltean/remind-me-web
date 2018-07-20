@@ -1,58 +1,88 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
-    render() {
-        return (
-            <div className="vertical-align page">
-                <div className="container">
-                    <div className="row">
-                        <div name="sign-on-container" className="horizontal-align sign-on">
-                            <div className="row">
-                                <div className="row">
-                                    <div className="sign-in-title">
-                                        Sign in
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="sign-in-content">
+const MyBtn = (props) => {
 
-                                        <div className="row">
-                                            <div className="sign-in">
-                                                <form>
-                                                    <div className="form-group">
-                                                        <input type="text" className="form-control" placeholder="Enter Username" name="uname"
-                                                               required/>
-                                                    </div>
+    const {className, text, otherProps} = {...props};
+    const classNames = ['btn', 'my-button', className].join(' ');
 
-                                                    <div className="form-group">
-                                                        <input type="password" className="form-control" placeholder="Enter Password" name="psw"
-                                                               required/>
-                                                    </div>
+    if (!text) {
+        console.error("Every button must contain a text property!");
+    }
 
-                                                    <button className="btn btn-default my-button">Login</button>
-                                                </form>
-                                            </div>
-                                        </div>
+    return <button className={classNames} {...otherProps}>{text}</button>
 
-                                        <div className="row social-sign-in">
-                                            <div className="row title">Social Sign In</div>
-                                            <div className="row">
-                                                <button className="btn my-button fb-sign-in">Facebook</button>
-                                                <button className="btn my-button google-sign-in">Google</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+};
+
+const FormInputGroup = (props) => {
+    const {placeholder, otherProps} = {...props};
+    return (
+        <div className="form-group">
+            <input type="text" className="form-control" placeholder={placeholder} {...otherProps}/>
+        </div>)
+};
+
+const SocialSignIn = () => (
+    <div className="row social-sign-in">
+        <div className="row title">Social Sign In</div>
+        <div className="row">
+            <MyBtn className="fb-sign-in" text="Facebook"/>
+            <MyBtn className="google-sign-in" text="Google"/>
+        </div>
+    </div>
+);
+
+const SignInForm = () => (
+    <div className="row">
+        <div className="sign-in">
+            <form>
+                <FormInputGroup placeholder="Enter Username"/>
+                <FormInputGroup placeholder="Enter Password"/>
+
+                <MyBtn className="btn-default" text="Sign In"/>
+            </form>
+        </div>
+    </div>
+);
+
+const SignIn = () => (
+    <div className="row">
+        <div className="sign-in-content">
+            <SignInForm/>
+            <SocialSignIn/>
+        </div>
+    </div>
+);
+
+const SignInTitle = () => (
+    <div className="row">
+        <div className="sign-in-title">
+            Sign in
+        </div>
+    </div>
+);
+
+const SignInContainer = (props) => (
+    <div className="vertical-align page">
+        <div className="container">
+            {props.children}
+        </div>
+    </div>
+);
+
+const App = () => (
+    <SignInContainer>
+        <div className="row">
+            <div className="horizontal-align sign-on">
+                <div className="row">
+                    <SignInTitle/>
+                    <SignIn/>
                 </div>
             </div>
-        );
-    }
-}
+        </div>
+    </SignInContainer>
+);
 
 export default App;

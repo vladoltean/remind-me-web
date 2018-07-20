@@ -81,6 +81,17 @@
 
 }
 
+.social-sign-in .fb-sign-in:hover {
+    background: linear-gradient(top, #29487d, #4267b2); /*facebook navbar color, border bottom color*/
+    color: white;
+}
+
+.social-sign-in .google-sign-in:hover {
+    background: linear-gradient(top, #9c4432, #d34836); /*google plus red color, google plus dark grey color*/
+    color:white;
+
+}
+
 .social-sign-in .title {
     color: #5e6772;
     font-size: 15px;
@@ -90,7 +101,7 @@
 /*mobile*/
 @media only screen and (max-width: 768px) {
     .sign-on {
-        background-color: blueviolet;
+        /*background-color: blueviolet;*/
     }
 }
 
