@@ -14,8 +14,6 @@ export const SocialSignIn = () => {
           color: white;
         }
     `;
-
-
     const GoogleBtn = styled(MyBtn)`
       float:right;
       background: -webkit-linear-gradient(top, #d34836, #9c4432); /*google plus red color, google plus dark grey color*/
@@ -25,14 +23,25 @@ export const SocialSignIn = () => {
         }
     `;
 
+    const StyledSocialSignIn = styled.div`
+         border-top: 1px solid #b7d0df;
+         margin-top: 50px;
+         padding-top: 10px;
+    `;
+    const Title = styled.div`
+        color: #5e6772;
+        font-size: 15px;
+    `;
+
+
     return (
-        <div className="row social-sign-in">
-            <div className="row title">Social Sign In</div>
+        <StyledSocialSignIn className="row">
+            <Title className="row">Social Sign In</Title>
             <div className="row">
                 <FacebookBtn text="Facebook"/>
                 <GoogleBtn text="Google"/>
             </div>
-        </div>
+        </StyledSocialSignIn>
     )
 };
 
@@ -43,7 +52,6 @@ export const SignInForm = () => {
                 <form>
                     <FormInputGroup placeholder="Enter Username"/>
                     <FormInputGroup placeholder="Enter Password"/>
-
                     <MyBtn className="btn-default" text="Sign In"/>
                 </form>
             </div>

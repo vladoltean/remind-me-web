@@ -56,9 +56,9 @@
 }
 
 .social-sign-in {
-    border-top: 1px solid #b7d0df;
-    margin-top: 50px;
-    padding-top: 10px;
+    /*border-top: 1px solid #b7d0df;*/
+    /*margin-top: 50px;*/
+    /*padding-top: 10px;*/
 }
 
 .social-sign-in button {
@@ -70,11 +70,11 @@
     color: white;
 }
 
-.social-sign-in .title {
-    color: #5e6772;
-    font-size: 15px;
+/*.social-sign-in .title {*/
+    /*color: #5e6772;*/
+    /*font-size: 15px;*/
     /*font-weight: lighter;*/
-}
+/*}*/
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
