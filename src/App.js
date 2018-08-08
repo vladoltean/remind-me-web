@@ -4,7 +4,7 @@ import React from 'react';
 import './App.css';
 import {SignIn, SignInOuterContainer, SignInTitle} from "./sign-in/SignIn";
 
-const SignIn = () => (
+const SignInContainer = () => (
     <div className="horizontal-align sign-on">
         <div className="row">
             <SignInTitle/>
@@ -17,7 +17,7 @@ const SignIn = () => (
 const App = () => (
     <SignInOuterContainer>
         <div className="row">
-            <SignIn/>
+            <SignInContainer/>
         </div>
     </SignInOuterContainer>
 );

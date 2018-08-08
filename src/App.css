@@ -70,28 +70,6 @@
     color: white;
 }
 
-.social-sign-in .fb-sign-in {
-    float:left;
-    background: linear-gradient(top, #4267b2, #29487d); /*facebook navbar color, border bottom color*/
-}
-
-.social-sign-in .google-sign-in {
-    float:right;
-    background: linear-gradient(top, #d34836, #9c4432); /*google plus red color, google plus dark grey color*/
-
-}
-
-.social-sign-in .fb-sign-in:hover {
-    background: linear-gradient(top, #29487d, #4267b2); /*facebook navbar color, border bottom color*/
-    color: white;
-}
-
-.social-sign-in .google-sign-in:hover {
-    background: linear-gradient(top, #9c4432, #d34836); /*google plus red color, google plus dark grey color*/
-    color:white;
-
-}
-
 .social-sign-in .title {
     color: #5e6772;
     font-size: 15px;

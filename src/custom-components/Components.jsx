@@ -1,8 +1,8 @@
 import React from 'react';
 
-// export MyBtn;
-// export FormInputGroup;
-
+/**
+ * Generic button
+ */
 export const MyBtn = (props) => {
 
     const {className, text, otherProps} = {...props};
@@ -16,6 +16,9 @@ export const MyBtn = (props) => {
 
 };
 
+/**
+ * Generic Form input.
+ */
 export const FormInputGroup = (props) => {
     const {placeholder, otherProps} = {...props};
     return (
