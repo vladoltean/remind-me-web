@@ -5,7 +5,16 @@ import styled from 'styled-components'
 
 export const SocialSignIn = () => {
 
-    const FacebookBtn = styled(MyBtn)`
+    const SocialBtn = styled(MyBtn)`
+        width: 150px;
+        height: 40px;
+        border: none;
+        box-shadow: 2px 2px 5px gray;
+        margin: 0 auto;
+        color: white;
+    `;
+
+    const FacebookBtn = styled(SocialBtn)`
         float:left;
         background: -webkit-linear-gradient(top, #4267b2, #29487d);
         
@@ -14,11 +23,11 @@ export const SocialSignIn = () => {
           color: white;
         }
     `;
-    const GoogleBtn = styled(MyBtn)`
+    const GoogleBtn = styled(SocialBtn)`
       float:right;
       background: -webkit-linear-gradient(top, #d34836, #9c4432); /*google plus red color, google plus dark grey color*/
       &:hover {
-          background: linear-gradient(top, #9c4432, #d34836); /*google plus red color, google plus dark grey color*/
+          background: -webkit-linear-gradient(top, #9c4432, #d34836); /*google plus red color, google plus dark grey color*/
           color:white;
         }
     `;
