@@ -6,7 +6,7 @@ import styled from 'styled-components'
  */
 export const MyBtn = (props) => {
 
-    const {className, text, otherProps} = {...props};
+    const {className, text, onClick, otherProps} = {...props};
     const classNames = ['btn', className].join(' ');
 
     if (!text) {
@@ -19,7 +19,8 @@ export const MyBtn = (props) => {
         box-shadow: 2px 2px 5px gray;
     `;
 
-    return <StyledButton className={classNames} {...otherProps}>{text}</StyledButton>
+    //TODO: See why does not otherProps propagate onClick?
+    return <StyledButton className={classNames} onClick={onClick} {...otherProps}>{text}</StyledButton>
 
 };
 
