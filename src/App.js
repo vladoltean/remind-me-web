@@ -2,17 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import React from 'react';
 import './App.css';
-import {SignIn, SignInOuterContainer, SignInTitle} from "./sign-in/SignIn";
-
-const SignInContainer = () => (
-    <div className="horizontal-align sign-on">
-        <div className="row">
-            <SignInTitle/>
-            <SignIn/>
-        </div>
-    </div>
-);
-
+import {SignInContainer, SignInOuterContainer} from "./sign-in/SignIn";
 
 const App = () => (
     <SignInOuterContainer>

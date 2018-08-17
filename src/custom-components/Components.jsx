@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 
 /**
  * Generic button
@@ -6,13 +7,19 @@ import React from 'react';
 export const MyBtn = (props) => {
 
     const {className, text, otherProps} = {...props};
-    const classNames = ['btn', 'my-button', className].join(' ');
+    const classNames = ['btn', className].join(' ');
 
     if (!text) {
         console.error("Every button must contain a text property!");
     }
 
-    return <button className={classNames} {...otherProps}>{text}</button>
+    const StyledButton = styled.button`
+        border: none;
+        border-radius: unset;
+        box-shadow: 2px 2px 5px gray;
+    `;
+
+    return <StyledButton className={classNames} {...otherProps}>{text}</StyledButton>
 
 };
 
@@ -25,4 +32,16 @@ export const FormInputGroup = (props) => {
         <div className="form-group">
             <input type="text" className="form-control" placeholder={placeholder} {...otherProps}/>
         </div>)
+};
+
+/**
+ * Generic bootstrap row.
+ */
+export const MyRow = (props) => {
+
+    const {className, otherProps} = {...props};
+    const classNames = ['row', className].join(' ');
+
+    return <div className={classNames} {...otherProps}>{props.children}</div>
+
 };
