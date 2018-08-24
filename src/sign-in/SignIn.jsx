@@ -4,6 +4,14 @@ import styled from 'styled-components'
 import {SocialSignIn} from "./SignInSocial";
 
 
+export const SignInCard = () => (
+    <SignInOuterContainer>
+        <div className="row">
+            <SignInContainer/>
+        </div>
+    </SignInOuterContainer>
+);
+
 export const SignInOuterContainer = (props) => {
 
     const StyledSignInOuterContainer = styled.div`
