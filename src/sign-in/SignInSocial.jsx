@@ -1,15 +1,24 @@
 import React from 'react';
 import {MyBtn, MyRow} from "../custom-components/Components";
 import styled from 'styled-components'
+import {auth, authenticate, isAuthenticated} from "./Authentication";
+import {Redirect} from "react-router-dom";
 
 export class SocialSignIn extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = { signedIn: false };
     }
 
     handleFbClick = (e) => {
-        alert('Facebook button pressed!');
+
+        authenticate(() => {
+            // trigger rerendering of the page
+            this.forceUpdate();
+        });
+
+        // alert('Facebook button pressed!');
     };
 
     handleGoogleClick = (e) => {
@@ -55,6 +64,13 @@ export class SocialSignIn extends React.Component {
             font-size: 15px;
         `;
 
+
+        //TODO: move this to a custom ProtectedRoute as in https://tylermcginnis.com/react-router-protected-routes-authentication/
+        if(isAuthenticated() === true){
+            return (
+                <Redirect to='/dashboard' />
+            )
+        }
 
         return (
             <StyledSocialSignIn className="row">
