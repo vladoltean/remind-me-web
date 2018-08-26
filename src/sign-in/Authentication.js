@@ -1,3 +1,15 @@
+import React from'react';
+import {Redirect, Route} from "react-router-dom";
+
+export const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props) => (
+        isAuthenticated() === true
+            ? <Component {...props} />
+            : <Redirect to='/login' />
+    )} />
+)
+
+
 const authentication = {
     isAuthenticated: false,
 };
@@ -14,7 +26,6 @@ export const isAuthenticated = () => {
 
 export const authenticate = (callback) => {
     const auth = getAuth();
-    console.log(JSON.stringify(auth));
     if (!auth) {
         console.error("Authentication not found for signing in!");
         return;
@@ -49,7 +60,7 @@ const getAuth = () => {
     const authString = localStorage.getItem("auth")
     let auth;
     if (authString !== undefined && authString !== "undefined") {
-        let auth = JSON.parse(authString);
+        auth = JSON.parse(authString);
     }
     if (!auth || auth === undefined) {
         auth = authentication;

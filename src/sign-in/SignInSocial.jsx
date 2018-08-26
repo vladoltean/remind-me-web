@@ -1,21 +1,26 @@
 import React from 'react';
 import {MyBtn, MyRow} from "../custom-components/Components";
 import styled from 'styled-components'
-import {auth, authenticate, isAuthenticated} from "./Authentication";
+import {auth, authenticate} from "./Authentication";
 import {Redirect} from "react-router-dom";
 
 export class SocialSignIn extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { signedIn: false };
+        this.state = {
+            redirectAfterLogin: false
+        };
     }
 
     handleFbClick = (e) => {
 
         authenticate(() => {
             // trigger rerendering of the page
-            this.forceUpdate();
+            this.setState({
+                redirectAfterLogin: true
+            });
+            // console.log()
         });
 
         // alert('Facebook button pressed!');
@@ -65,10 +70,9 @@ export class SocialSignIn extends React.Component {
         `;
 
 
-        //TODO: move this to a custom ProtectedRoute as in https://tylermcginnis.com/react-router-protected-routes-authentication/
-        if(isAuthenticated() === true){
+        if (this.state.redirectAfterLogin) {
             return (
-                <Redirect to='/dashboard' />
+                <Redirect to={"/dashboard"}/>
             )
         }
 
