@@ -1,10 +1,15 @@
 import React from 'react';
 import {MyBtn, MyRow} from "../custom-components/Components";
 import styled from 'styled-components'
-import {auth, authenticate} from "./Authentication";
+import {auth, authenticate, isAuthenticated} from "./Authentication";
 import {Redirect} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export class SocialSignIn extends React.Component {
+
+    static contextTypes = {
+        router: PropTypes.object
+    };
 
     constructor(props) {
         super(props);
@@ -15,19 +20,26 @@ export class SocialSignIn extends React.Component {
 
     handleFbClick = (e) => {
 
-        authenticate(() => {
-            // trigger rerendering of the page
-            this.setState({
-                redirectAfterLogin: true
-            });
-            // console.log()
+        this.setState({
+            redirectAfterSignIn: true
         });
+        console.log('Facebook button pressed!');
+        this.context.router.history.push(`/login/facebook`)
 
-        // alert('Facebook button pressed!');
+        // authenticate(() => {
+        //     // trigger rerendering of the page
+        //     this.setState({
+        //         redirectAfterLogin: true
+        //     });
+        //     // console.log()
+        // });
+
+
     };
 
     handleGoogleClick = (e) => {
-        alert('Google button pressed!');
+        console.log('Google button pressed!');
+        this.context.router.history.push(`/login/google`)
     };
 
 
@@ -70,7 +82,7 @@ export class SocialSignIn extends React.Component {
         `;
 
 
-        if (this.state.redirectAfterLogin) {
+        if (this.state.redirectAfterLogin || isAuthenticated()) {
             return (
                 <Redirect to={"/dashboard"}/>
             )

@@ -15,7 +15,9 @@ const App = () => {
             <Route exact path='/' component={SignInCard}/>
             <Route path='/home' component={SignInCard}/>
             <Route path='/signin' component={SignInCard}/>
-            <Route path='/login' component={SignInCard}/>
+            <Route exact path='/login' component={SignInCard}/>
+            <Route exact path='/login/facebook' component={() => window.location = 'http://localhost:8080/login/facebook'}/>
+            <Route exact path='/login/google' component={() => window.location = 'http://localhost:8080/login/google'}/>
             <PrivateRoute path='/dashboard' component={Dashboard}/>
             <Route component={NotFound}/>
         </Switch>
