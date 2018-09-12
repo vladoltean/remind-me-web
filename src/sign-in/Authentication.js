@@ -1,5 +1,8 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
+export const JWT_COOKIE_NAME = "jwt";
 
 export const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={(props) => (
@@ -18,13 +21,12 @@ export const isAuthenticated = () => {
 };
 
 export const isJwtCookieThere = () => {
-    let cookie = getCookieByName("jwt");
+    let cookie = getCookieByName(JWT_COOKIE_NAME);
     if (cookie !== undefined) {
         return true;
     }
     return false;
 };
-
 
 export const signout = (callback) => {
     deleteCookieByName("jwt");
@@ -39,7 +41,18 @@ export const signout = (callback) => {
     setTimeout(callback, 500);
 };
 
+export const getCurrentUser = () => {
+    let jwtCookie = getCookieByName(JWT_COOKIE_NAME);
+    if(jwtCookie !== undefined) {
+        let jwtToken = jwtCookie.value;
+        return jwt_decode(jwtToken);
+    } else {
+        console.error("Current user was requested but not present!");
+    }
+};
 
+
+// Utilities
 export const getCookieByName = (name) => {
     let cookies = document.cookie;
     cookies = cookies.split(";");
