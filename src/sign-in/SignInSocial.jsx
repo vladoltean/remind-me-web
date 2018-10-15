@@ -1,19 +1,45 @@
 import React from 'react';
 import {MyBtn, MyRow} from "../custom-components/Components";
 import styled from 'styled-components'
+import {auth, authenticate, isAuthenticated} from "./Authentication";
+import {Redirect} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export class SocialSignIn extends React.Component {
 
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
+        this.state = {
+            redirectAfterLogin: false
+        };
     }
 
     handleFbClick = (e) => {
-        alert('Facebook button pressed!');
+
+        this.setState({
+            redirectAfterSignIn: true
+        });
+        console.log('Facebook button pressed!');
+        this.context.router.history.push(`/login/facebook`)
+
+        // authenticate(() => {
+        //     // trigger rerendering of the page
+        //     this.setState({
+        //         redirectAfterLogin: true
+        //     });
+        //     // console.log()
+        // });
+
+
     };
 
     handleGoogleClick = (e) => {
-        alert('Google button pressed!');
+        console.log('Google button pressed!');
+        this.context.router.history.push(`/login/google`)
     };
 
 
@@ -55,6 +81,12 @@ export class SocialSignIn extends React.Component {
             font-size: 15px;
         `;
 
+
+        if (this.state.redirectAfterLogin || isAuthenticated()) {
+            return (
+                <Redirect to={"/dashboard"}/>
+            )
+        }
 
         return (
             <StyledSocialSignIn className="row">
