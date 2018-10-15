@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'bootstrap/dist/css/bootstrap-grid.css';
+import 'bootstrap/dist/css/bootstrap-reboot.css';
 import React from 'react';
 import './App.css';
 import {SignInCard} from "./sign-in/SignIn";
