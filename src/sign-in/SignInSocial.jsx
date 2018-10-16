@@ -23,22 +23,11 @@ export class SocialSignIn extends React.Component {
         this.setState({
             redirectAfterSignIn: true
         });
-        console.log('Facebook button pressed!');
         this.context.router.history.push(`/login/facebook`)
-
-        // authenticate(() => {
-        //     // trigger rerendering of the page
-        //     this.setState({
-        //         redirectAfterLogin: true
-        //     });
-        //     // console.log()
-        // });
-
 
     };
 
     handleGoogleClick = (e) => {
-        console.log('Google button pressed!');
         this.context.router.history.push(`/login/google`)
     };
 

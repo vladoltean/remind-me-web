@@ -8,6 +8,7 @@ import {Route, Switch} from "react-router-dom";
 import {Dashboard} from "./dashboard/dashboard";
 import {NotFound} from "./not-found/NotFound";
 import {PrivateRoute} from "./sign-in/Authentication";
+import {getFacebookLoginUrl, getGoogleLoginUrl} from "./api/Api";
 
 const App = () => {
 
@@ -17,8 +18,8 @@ const App = () => {
             <Route path='/home' component={SignInCard}/>
             <Route path='/signin' component={SignInCard}/>
             <Route exact path='/login' component={SignInCard}/>
-            <Route exact path='/login/facebook' component={() => window.location = 'http://localhost:8080/login/facebook'}/>
-            <Route exact path='/login/google' component={() => window.location = 'http://localhost:8080/login/google'}/>
+            <Route exact path='/login/facebook' component={() => window.location = getFacebookLoginUrl()}/>
+            <Route exact path='/login/google' component={() => window.location = getGoogleLoginUrl()}/>
             <PrivateRoute path='/dashboard' component={Dashboard}/>
             <Route component={NotFound}/>
         </Switch>

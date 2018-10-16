@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import {fetch_api} from "../api/Api";
 
 export const JWT_COOKIE_NAME = "jwt";
 
@@ -30,11 +31,11 @@ export const isJwtCookieThere = () => {
 
 export const signout = (callback) => {
     deleteCookieByName("jwt");
-    fetch('http://localhost:8080/logout',
+    fetch_api('/logout',
         {
             method: 'POST',
             credentials: "include",
-            mode: "no-cors"
+            mode: "cors"
         })
         .then(response => console.log(response))
         .catch(error => console.error('Error Logged by vlad:', error));
